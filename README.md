@@ -36,10 +36,10 @@ and admin-only storage policies.
 
 ### Enquiry email notifications
 
-Enquiries are emailed directly through the Resend API (they are not saved in
-the database or shown in the admin Enquiries page). Add
-`RESEND_API_KEY` and `RESEND_FROM_EMAIL` to your local `.env` file to enable
-email delivery.
+Enquiries are saved in the database and shown in the admin Enquiries page.
+Email notifications use the Resend API; delivery failures do not discard a
+saved enquiry. Add `RESEND_API_KEY` and `RESEND_FROM_EMAIL` to your local
+`.env` file to enable email delivery.
 
 For local development, the app uses Resend's `onboarding@resend.dev` test sender
 when `RESEND_FROM_EMAIL` is not set. Resend only permits test sends to the email
