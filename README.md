@@ -21,6 +21,11 @@ npm i
 npm run dev
 ```
 
+Copy [`.env.example`](./.env.example) to `.env` and replace the placeholders
+with your Supabase and Resend settings. Keep `.env` private; it is excluded from
+Git. Never expose `SUPABASE_SERVICE_ROLE_KEY` to client-side code or use a
+`VITE_` prefix for it.
+
 ### Admin project images
 
 Admin project image uploads use the private Supabase `project-images` bucket.
@@ -33,12 +38,8 @@ and admin-only storage policies.
 
 Enquiries are emailed directly through the Resend API (they are not saved in
 the database or shown in the admin Enquiries page). Add
-these server-side values to your local `.env` file to enable email delivery:
-
-```dotenv
-RESEND_API_KEY=your_resend_api_key
-RESEND_FROM_EMAIL=enquiries@your-verified-domain.com
-```
+`RESEND_API_KEY` and `RESEND_FROM_EMAIL` to your local `.env` file to enable
+email delivery.
 
 For local development, the app uses Resend's `onboarding@resend.dev` test sender
 when `RESEND_FROM_EMAIL` is not set. Resend only permits test sends to the email
